@@ -23,7 +23,6 @@ public class Main extends Application {
         primaryStage.show();
     }
 
-
     public static void main(String[] args) {
 
         ClientDao ClientData = new ClientDao();
@@ -31,9 +30,9 @@ public class Main extends Application {
 
         ClientViewController ClientController = new ClientViewController(ClientData);
         InvoiceVewController InvoiceController = new InvoiceVewController(InvoiceData);
-//        ClientController.registerClientJ("Plutão","37.664.060/0001-19");
-//        ClientController.registerClientF("Rodrigo potato","410.858.110-50");
-//
+        ClientController.registerClientJ("Plutão","37.664.060/0001-19");
+        ClientController.registerClientF("Rodrigo potato","410.858.110-50");
+
         ClientJ J = (ClientJ) ClientData.getClient(Objects.hashCode("Plutão"+"37.664.060/0001-19"));
         System.out.println(J.getCode());
         System.out.println(J.getName());
@@ -50,8 +49,6 @@ public class Main extends Application {
         System.out.println(F.getWinnings());
         System.out.println(F.getSpent());
         ClientData.deleteClientF(F);
-
-
 //        ClientData.deleteClientJ(J);
         launch(args);
 

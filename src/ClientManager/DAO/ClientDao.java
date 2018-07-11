@@ -72,11 +72,34 @@ public class ClientDao {
     }
 
     public void deleteClientF(ClientF F){
+        F.setCode(F.hashCode());
+        bd = new BDConnection();
+        try {
+            Statement stmt = bd.getconnection().createStatement();
+            String sql = "DELETE from clientf where code ="+F.getCode()+";" +
+                    "DELETE from client where code ="+F.getCode()+";";
 
+            stmt.executeUpdate(sql);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         this.ClientesF.remove(F);
     }
 
     public void deleteClientJ(ClientJ J){
+        J.setCode(J.hashCode());
+        bd = new BDConnection();
+        try {
+            Statement stmt = bd.getconnection().createStatement();
+            String sql = "DELETE from clientj where code ="+J.getCode()+";" +
+                    "DELETE from client where code ="+J.getCode()+";";
+
+            stmt.executeUpdate(sql);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         this.ClientesJ.remove(J);
     }
 

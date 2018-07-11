@@ -1,4 +1,4 @@
 package ClientManager.Views;
 
-public class Controller {
+public class UserView {
 }
