@@ -10,9 +10,10 @@ import ClientManager.Models.ClientJ;
 public class ClientViewController {
     ClientDao data;
 
-    public ClientViewController(ClientDao data) {
-        this.data = data;
+    public ClientViewController() {
+        this.data = new ClientDao();
     }
+
     public void registerClientJ(String _name, String cnpj){
         data.saveClientJ(new ClientJ(_name,cnpj));
         System.out.println("s");

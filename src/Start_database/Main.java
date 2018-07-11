@@ -69,12 +69,36 @@ public class Main {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
         }
     }
+    public static void TableInvoice(){
+        BDConnection connection = new BDConnection();
+        Statement stmt = null;
+        Connection c = connection.getconnection();
+        try {
+            stmt = c.createStatement();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        try {
+            String sql = null;
+            sql = "CREATE TABLE invoice " +
+                    "(id  SERIAL PRIMARY KEY" +
+                    ",clientID INT ," +
+                    "FOREIGN KEY (clientID) REFERENCES Client(code)," +
+                    " description           TEXT," +
+                    "spent FLOAT NOT NULL," +
+                    "winningpercentage FLOAT NOT NULL," +
+                    "totalcost FLOAT NOT NULL);";
+            stmt.executeUpdate(sql);
+        }catch (Exception e) {
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+        }
+    }
 
     public static void main(String[] args) {
         TableClient();
         TableClientF();
         TableClientJ();
-
+        TableInvoice();
 
 
     }

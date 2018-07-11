@@ -3,7 +3,7 @@ package ClientManager;
 import ClientManager.Controls.ClientViewController;
 import ClientManager.Controls.InvoiceVewController;
 import ClientManager.DAO.ClientDao;
-import ClientManager.DAO.SaveInvoiceData;
+import ClientManager.DAO.InvoiceDao;
 import ClientManager.Models.ClientF;
 import ClientManager.Models.ClientJ;
 import java.util.Objects;
@@ -26,10 +26,10 @@ public class Main extends Application {
     public static void main(String[] args) {
 
         ClientDao ClientData = new ClientDao();
-        SaveInvoiceData InvoiceData = new SaveInvoiceData(ClientData);
 
-        ClientViewController ClientController = new ClientViewController(ClientData);
-        InvoiceVewController InvoiceController = new InvoiceVewController(InvoiceData);
+
+        ClientViewController ClientController = new ClientViewController();
+
         ClientController.registerClientJ("Plutão","37.664.060/0001-19");
         ClientController.registerClientF("Rodrigo potato","410.858.110-50");
 

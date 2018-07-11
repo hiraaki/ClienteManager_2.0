@@ -139,4 +139,19 @@ public class ClientDao {
         }
         return response;
     }
+    public void updateClientValues(Client client){
+        bd = new BDConnection();
+        Statement stmt = null;
+        try {
+            stmt = bd.getconnection().createStatement();
+            String sql = "UPDATE client set spent= "+client.getWinnings()+" where code="+client.getCode()+";" +
+                        "UPDATE client set balance= "+client.getBalance()+" where code="+client.getCode()+";"+
+                        "UPDATE client set winnings= "+client.getWinnings()+" where code="+client.getCode()+";"+
+                        "UPDATE client set winnings= "+client.getWinnings()+" where code="+client.getCode()+";";
+            stmt.executeUpdate(sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
 }

@@ -1,13 +1,13 @@
 package ClientManager.Controls;
 
-import ClientManager.DAO.SaveInvoiceData;
+import ClientManager.DAO.InvoiceDao;
 import ClientManager.Models.Client;
 import ClientManager.Models.Invoice;
 
 public class InvoiceVewController {
-    SaveInvoiceData InvoiceData;
+    InvoiceDao InvoiceData;
 
-    public InvoiceVewController(SaveInvoiceData invoiceData) {
+    public InvoiceVewController(InvoiceDao invoiceData) {
         InvoiceData = invoiceData;
     }
 
