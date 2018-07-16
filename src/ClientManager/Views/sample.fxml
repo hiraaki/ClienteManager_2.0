@@ -6,63 +6,14 @@
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="441.0" prefWidth="654.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ClientManager.Views.UserView">
    <children>
       <TabPane layoutY="-1.0" prefHeight="441.0" prefWidth="654.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
-          <Tab text="Cadastro de Cliente">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="309.0" prefWidth="602.0">
-                     <children>
-                        <Label layoutX="137.0" layoutY="20.0" text="Nome:">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Label>
-                        <TextField fx:id="textfildNome" layoutX="182.0" layoutY="18.0" prefHeight="25.0" prefWidth="290.0" />
-                        <Label layoutX="113.0" layoutY="55.0" text="CPF/CNPJ:">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Label>
-                        <TextField fx:id="textfildcpfcnpj" layoutX="182.0" layoutY="53.0" prefHeight="25.0" prefWidth="292.0" />
-                        <Button layoutX="296.0" layoutY="288.0" mnemonicParsing="false" onAction="#buttonCadastraCliente" text="Cadastrar" />
-                        <Button layoutX="408.0" layoutY="288.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="68.0" text="Cancelar" />
-                        <TextArea fx:id="DescriptuonText" layoutX="182.0" layoutY="90.0" prefHeight="186.0" prefWidth="294.0" />
-                        <Label layoutX="113.0" layoutY="90.0" text="Descrição:">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </AnchorPane>
-            </content>
-          </Tab>
-            <Tab text="Cadastro de Fatura">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <TextField layoutX="253.0" layoutY="14.0" />
-                        <Label layoutX="160.0" layoutY="18.0" text="Nome do Cliente:" />
-                        <Button layoutX="402.0" layoutY="14.0" mnemonicParsing="false" text="Buscar" />
-                        <TableView layoutX="-4.0" layoutY="47.0" prefHeight="293.0" prefWidth="654.0">
-                          <columns>
-                            <TableColumn prefWidth="128.0" text="CPF/CNPJ" />
-                            <TableColumn fx:id="table" prefWidth="110.0" text="Nome" />
-                              <TableColumn fx:id="table1" prefWidth="415.0" text="Descrição" />
-                          </columns>
-                        </TableView>
-                        <Button layoutX="280.0" layoutY="348.0" mnemonicParsing="false" text="Exibir Histórico" />
-                     </children>
-                  </AnchorPane>
-              </content>
-            </Tab>
-            <Tab text="Demonstrativo do cliente">
+            <Tab text="Clientes">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
@@ -76,26 +27,10 @@
                               <TableColumn fx:id="table11" prefWidth="415.0" text="Descrição" />
                            </columns>
                         </TableView>
-                        <Button layoutX="280.0" layoutY="348.0" mnemonicParsing="false" text="Exibir Histórico" />
-                     </children>
-                  </AnchorPane>
-               </content>
-            </Tab>
-            <Tab text="Alterar ou excluir Cliente">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <TextField layoutX="253.0" layoutY="14.0" />
-                        <Label layoutX="160.0" layoutY="18.0" text="Nome do Cliente:" />
-                        <Button layoutX="402.0" layoutY="14.0" mnemonicParsing="false" text="Buscar" />
-                        <TableView layoutX="-4.0" layoutY="47.0" prefHeight="293.0" prefWidth="654.0">
-                           <columns>
-                              <TableColumn prefWidth="128.0" text="CPF/CNPJ" />
-                              <TableColumn fx:id="table1" prefWidth="110.0" text="Nome" />
-                              <TableColumn fx:id="table12" prefWidth="415.0" text="Descrição" />
-                           </columns>
-                        </TableView>
-                        <Button layoutX="297.0" layoutY="348.0" mnemonicParsing="false" text="Alterar" />
+                        <Button layoutX="410.0" layoutY="348.0" mnemonicParsing="false" text="Exibir Faturas" />
+                        <Button layoutX="284.0" layoutY="348.0" mnemonicParsing="false" text="Excluir Cliente" />
+                        <Button layoutX="14.0" layoutY="348.0" mnemonicParsing="false" text="Cadastrar Cliente" />
+                        <Button layoutX="155.0" layoutY="348.0" mnemonicParsing="false" text="Cadastrar Fatura" />
                      </children>
                   </AnchorPane>
                </content>

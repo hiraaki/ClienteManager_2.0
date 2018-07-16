@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="407.0" prefWidth="670.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="24.0" layoutY="49.0" text="Nome do Cliente:" />
+      <TableView layoutX="7.0" layoutY="76.0" prefHeight="235.0" prefWidth="657.0">
+         <columns>
+            <TableColumn prefWidth="353.0" text="Descrição" />
+            <TableColumn fx:id="table11" prefWidth="87.0" text="Gastos" />
+            <TableColumn fx:id="table111" prefWidth="108.0" text="Porcentagem" />
+            <TableColumn fx:id="table1111" prefWidth="107.0" text="Custo Total" />
+         </columns>
+      </TableView>
+      <Button layoutX="393.0" layoutY="348.0" mnemonicParsing="false" text="Deletar" />
+      <Button layoutX="237.0" layoutY="348.0" mnemonicParsing="false" text="Cadastrar" />
+      <Label layoutX="117.0" layoutY="49.0" text="NOME DO CLIENTE" />
+      <Label layoutX="288.0" layoutY="7.0" text="Histórico">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Button layoutX="327.0" layoutY="348.0" mnemonicParsing="false" text="Exibir" />
+   </children>
+</AnchorPane>
