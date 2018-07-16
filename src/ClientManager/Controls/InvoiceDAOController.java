@@ -7,14 +7,14 @@ import ClientManager.Models.Invoice;
 public class InvoiceDAOController {
     InvoiceDao InvoiceData;
 
-    public InvoiceDAOController(InvoiceDao invoiceData) {
-        InvoiceData = invoiceData;
+    public InvoiceDAOController() {
+        InvoiceData = new InvoiceDao();
     }
 
-    public void registerInvoiceF(int clientID, String description, Client client, float spent, float winningPercentage ){
+    public void registerInvoice(int clientID, String description, Client client, float spent, float winningPercentage ){
         InvoiceData.addInvoice(client,new Invoice(clientID, description, client, spent, winningPercentage ));
     }
-    public void registerInvoice(Invoice in){
+    public void deleteInvoice(Invoice in){
         InvoiceData.delete(in);
     }
 }

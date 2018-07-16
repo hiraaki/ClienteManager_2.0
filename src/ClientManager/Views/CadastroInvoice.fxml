@@ -7,21 +7,24 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ClientManager.Controls.CadastroInvoiceController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Button layoutX="497.0" layoutY="324.0" mnemonicParsing="false" text="Cancelar" />
-      <Button layoutX="54.0" layoutY="324.0" mnemonicParsing="false" text="Adicionar" />
-      <TextField layoutX="108.0" layoutY="67.0" />
+      <Button layoutX="418.0" layoutY="324.0" mnemonicParsing="false" onAction="#buttonAdicionar" text="Adicionar" />
+      <TextField fx:id="spentfield" layoutX="108.0" layoutY="67.0" />
       <Label layoutX="63.0" layoutY="71.0" text="Gastos:" />
-      <TextField layoutX="183.0" layoutY="102.0" />
+      <TextField fx:id="percentagefield" layoutX="183.0" layoutY="102.0" />
       <Label layoutX="63.0" layoutY="106.0" text="Porcentagem a cobrar:" />
       <Label layoutX="63.0" layoutY="138.0" text="Descrição do Serviço:" />
-      <TextArea layoutX="54.0" layoutY="157.0" prefHeight="153.0" prefWidth="505.0" />
+      <TextArea fx:id="descriptionArea" layoutX="54.0" layoutY="157.0" prefHeight="133.0" prefWidth="505.0" />
       <Label layoutX="164.0" layoutY="8.0" text="ADICIONAR UMA FATURA">
          <font>
             <Font size="20.0" />
          </font></Label>
       <Label layoutX="63.0" layoutY="38.0" text="Cliente:" />
-      <Label layoutX="106.0" layoutY="38.0" text="Nome do cliente" />
+      <Label fx:id="nomeClienteText" layoutX="106.0" layoutY="38.0" text="Nome do cliente" />
+      <Label layoutX="121.0" layoutY="298.0" text="Total R$" />
+      <Label fx:id="totalText" layoutX="167.0" layoutY="298.0" text="----" />
+      <Button layoutX="54.0" layoutY="294.0" mnemonicParsing="false" onAction="#buttonCalcular" text="Calcular" />
    </children>
 </AnchorPane>

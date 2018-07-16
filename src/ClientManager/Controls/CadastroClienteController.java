@@ -35,4 +35,5 @@ public class CadastroClienteController implements Initializable {
             cvc.registerClientJ(name,cpfcnpj,description);
         }
     }
+
 }

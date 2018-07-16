@@ -65,4 +65,15 @@ public class UserView implements Initializable {
         clientsTable.setItems(data);
         clientsTable.refresh();
     }
+    public void buttonCadastraFatura() throws IOException {
+        CadastroInvoiceController controller= new CadastroInvoiceController(clientsTable.getSelectionModel().getSelectedItem());
+        Stage stage= new Stage();
+        FXMLLoader fx = new FXMLLoader(getClass().getResource("/ClientManager/Views/CadastroInvoice.fxml"));
+        fx.setController(controller);
+        Parent c = fx.load();
+        Scene scene = new Scene(c);
+        stage.setScene(scene);
+        stage.show();
+    }
+
 }

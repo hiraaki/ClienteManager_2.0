@@ -16,12 +16,10 @@ import java.util.ArrayList;
  */
 public class InvoiceDao {
 
-    ArrayList<Invoice> invoices;
-    ClientDao client;
     BDConnection bd;
-    public InvoiceDao(ClientDao client) {
-        this.invoices = new ArrayList<>();
-        this.client = client;
+
+    public InvoiceDao() {
+        bd = new BDConnection();
     }
 
     public void addInvoice(Client client, Invoice invoice){
@@ -33,12 +31,13 @@ public class InvoiceDao {
         client.updateBalance();
         try {
             BDConnection bd= new BDConnection();
-            String sql = "INSERT INTO invoice(code, description, spent, winningpercentage, totalcost)) "
+            String sql = "INSERT INTO invoice(clientid, description, spent, winningpercentage, totalcost) "
                     + "VALUES ("+client.getCode()+","
                     +"'"+invoice.getDescription()+"'"+","
                     +invoice.getSpent()+","
-                    +invoice.getWinningPercentage()+", "
+                    +invoice.getWinningPercentage()+","
                     +invoice.getTotalcost()+");";
+            System.out.println(sql);
             PreparedStatement stmt = bd.getconnection().prepareStatement(sql);
             stmt.executeUpdate();
             System.out.println("Opened database successfully");
@@ -46,7 +45,6 @@ public class InvoiceDao {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        this.invoices.add(invoice);
         client.getServices().add(invoice);
         ClientDao c = new ClientDao();
         c.updateClientValues(client);

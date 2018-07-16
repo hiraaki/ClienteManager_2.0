@@ -29,7 +29,7 @@
                         <Button layoutX="410.0" layoutY="348.0" mnemonicParsing="false" text="Exibir Faturas" />
                         <Button layoutX="284.0" layoutY="348.0" mnemonicParsing="false" text="Excluir Cliente" />
                         <Button fx:id="button" layoutX="14.0" layoutY="348.0" mnemonicParsing="false" onAction="#buttonCadastrarCliente" text="Cadastrar Cliente" />
-                        <Button layoutX="155.0" layoutY="348.0" mnemonicParsing="false" text="Cadastrar Fatura" />
+                        <Button layoutX="155.0" layoutY="348.0" mnemonicParsing="false" text="Cadastrar Fatura" onAction="#buttonCadastraFatura" />
                      </children>
                   </AnchorPane>
                </content>
