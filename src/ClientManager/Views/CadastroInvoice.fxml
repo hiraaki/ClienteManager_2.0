@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ClientManager.Views.CadastroInvoiceController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ClientManager.Controls.CadastroInvoiceController">
    <children>
       <Button layoutX="497.0" layoutY="324.0" mnemonicParsing="false" text="Cancelar" />
       <Button layoutX="54.0" layoutY="324.0" mnemonicParsing="false" text="Adicionar" />

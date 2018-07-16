@@ -1,4 +1,4 @@
-package ClientManager.Views;
+package ClientManager.Controls;
 
 public class CadastroInvoiceController{
 
