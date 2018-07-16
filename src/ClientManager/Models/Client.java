@@ -11,6 +11,7 @@ public class Client {
     private float spent;
     private float balance;
     private  float winnings;
+    private String description;
     private ArrayList<Invoice> services;
 
     /**
@@ -24,6 +25,7 @@ public class Client {
         this.balance=0;
         this.winnings=0;
         this.name = name;
+        this.description="";
         this.services=new ArrayList<>();
     }
 
@@ -82,6 +84,14 @@ public class Client {
 
     public void addWinnings(float winnings) {
         this.winnings = winnings;
+    }
+
+    public String getdescription() {
+        return description;
+    }
+
+    public void setdescription(String description) {
+        this.description = description;
     }
 
     public ArrayList<Invoice> getServices() {

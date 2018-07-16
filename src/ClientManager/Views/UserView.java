@@ -24,8 +24,8 @@ public class UserView implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         //carregaComboBox();
-        winningstext.setEditable(false);
-        GanhosLabel.setText("dsadsadsadsa Shablau");
+        //winningstext.setEditable(false);
+//        GanhosLabel.setText("dsadsadsadsa Shablau");
     }
 
     @FXML
