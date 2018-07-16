@@ -73,11 +73,8 @@ public class Client {
     }
 
     public void updateBalance() {
-
         this.balance = this.spent-winnings;
-
     }
-
     public float getWinnings() {
         return winnings;
     }
@@ -86,11 +83,11 @@ public class Client {
         this.winnings = winnings;
     }
 
-    public String getdescription() {
+    public String getDescription() {
         return description;
     }
 
-    public void setdescription(String description) {
+    public void setDescription(String description) {
         this.description = description;
     }
 

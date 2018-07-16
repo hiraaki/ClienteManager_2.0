@@ -15,7 +15,7 @@ public class BDConnection {
             try {
                 Class.forName(driver);
                 Connection con = null;
-                connection = (Connection) DriverManager.getConnection(url, user, senha);
+                this.connection = (Connection) DriverManager.getConnection(url, user, senha);
                 System.out.println("Conexão realizada com Sucesso!");
             } catch (ClassNotFoundException ex) {
                 System.err.print(ex.getMessage());

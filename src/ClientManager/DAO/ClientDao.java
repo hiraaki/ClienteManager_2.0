@@ -32,7 +32,7 @@ public class ClientDao {
                     +f.getSpent()+","
                     +f.getBalance()+", "
                     +f.getWinnings()+","
-                    +"'"+f.getdescription()+"');"+
+                    +"'"+f.getDescription()+"');"+
                     "INSERT INTO clientf(code, cpf)" +
                     "VALUES("+f.getCode()+","
                     +"'"+f.getCpf()+"')";
@@ -59,7 +59,7 @@ public class ClientDao {
                     +J.getSpent()+","
                     +J.getBalance()+", "
                     +J.getWinnings()+","
-                    +"'"+J.getdescription()+"');"
+                    +"'"+J.getDescription()+"');"
                     +"INSERT INTO clientj(code, cnpj)" +
                     "VALUES("+J.getCode()+","
                     +"'"+J.getCnpj()+"')";
@@ -160,17 +160,20 @@ public class ClientDao {
     }
     public ArrayList<Client> getClients(String name){
         ArrayList<Client> result=new ArrayList<>();
+        bd = new BDConnection();
         try {
             Statement stmt = bd.getconnection().createStatement();
-            ResultSet rs = stmt.executeQuery( "SELECT * FROM Client where nome=%"+name+"%;" );
+            String sql ="SELECT * FROM client WHERE name LIKE'%"+name+"%';";
+            ResultSet rs = stmt.executeQuery( sql );
             while (rs.next()) {
                 Client client = new Client(rs.getString("name"),"");
                 client.setCode(rs.getInt("code"));
                 client.setSpent(rs.getFloat("spent"));
                 client.setBalance(rs.getFloat("balance"));
                 client.setWinnings(rs.getFloat("winnings"));
-                client.setdescription(rs.getString("description"));
+                client.setDescription(rs.getString("description"));
                 result.add(client);
+                System.out.println(client.getDescription());
             }
         } catch (SQLException e) {
             e.printStackTrace();

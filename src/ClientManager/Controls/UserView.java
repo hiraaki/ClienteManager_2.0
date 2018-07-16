@@ -53,7 +53,16 @@ public class UserView implements Initializable {
     }
     public void buttonBuscaClientes(){
         ClientDAOController co= new ClientDAOController();
-        ArrayList<Client> clients = co.getClients(clientName.getText());
+        String name =  clientName.getText();
+        System.out.printf(name);
 
+        data.removeAll(data);
+        clientsTable.getItems().clear();
+
+        this.clients = co.getClients(name);
+        this.data.addAll(clients);
+
+        clientsTable.setItems(data);
+        clientsTable.refresh();
     }
 }
