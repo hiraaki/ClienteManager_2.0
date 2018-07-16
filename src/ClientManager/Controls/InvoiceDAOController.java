@@ -4,10 +4,10 @@ import ClientManager.DAO.InvoiceDao;
 import ClientManager.Models.Client;
 import ClientManager.Models.Invoice;
 
-public class InvoiceVewController {
+public class InvoiceDAOController {
     InvoiceDao InvoiceData;
 
-    public InvoiceVewController(InvoiceDao invoiceData) {
+    public InvoiceDAOController(InvoiceDao invoiceData) {
         InvoiceData = invoiceData;
     }
 

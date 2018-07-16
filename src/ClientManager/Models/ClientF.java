@@ -12,11 +12,14 @@ public class ClientF  extends  Client{
      * @param name Armazena nome do cliente
      * @param cpf Armazena o cpf do cliente
      */
-    public ClientF(String name, String cpf) {
-        super(name);
+    public ClientF(String name, String cpf,String description) {
+        super(name,description);
         this.cpf = cpf;
     }
-
+    public ClientF(String name, String cpf) {
+        super(name,"");
+        this.cpf = cpf;
+    }
 
 
     public String getCpf() {

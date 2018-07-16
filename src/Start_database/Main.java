@@ -23,7 +23,8 @@ public class Main {
                     " name           TEXT    NOT NULL, " +
                     " spent            REAL," +
                     " balance          REAL," +
-                    " winnings        REAL);";
+                    " winnings        REAL," +
+                    " description   TEXT);";
             stmt.executeUpdate(sql);
         }catch (Exception e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());

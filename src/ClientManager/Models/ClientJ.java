@@ -13,8 +13,12 @@ public class ClientJ extends Client {
      * @param name armazena o nome da empresa
      * @param cnpj armazena o cnpj da empresa
      */
+    public ClientJ(String name, String cnpj,String description) {
+        super(name,description);
+        this.cnpj = cnpj;
+    }
     public ClientJ(String name, String cnpj) {
-        super(name);
+        super(name,"");
         this.cnpj = cnpj;
     }
 

@@ -26,12 +26,13 @@ public class ClientDao {
         System.out.println("s");
         try {
             BDConnection bd= new BDConnection();
-            String sql = "INSERT INTO client(code,name,spent,balance,winnings) "
+            String sql = "INSERT INTO client(code,name,spent,balance,winnings,description) "
                     + "VALUES ("+f.getCode()+","
                     +"'"+f.getName()+"'"+","
                     +f.getSpent()+","
                     +f.getBalance()+", "
-                    +f.getWinnings()+");"+
+                    +f.getWinnings()+","
+                    +"'"+f.getdescription()+"');"+
                     "INSERT INTO clientf(code, cpf)" +
                     "VALUES("+f.getCode()+","
                     +"'"+f.getCpf()+"')";
@@ -52,17 +53,20 @@ public class ClientDao {
         J.setCode(J.hashCode());
         try {
             System.out.println("d");
-            String sql = "INSERT INTO client (code,name,spent,balance,winnings) "
+            String sql = "INSERT INTO client (code,name,spent,balance,winnings,description) "
                     + "VALUES ("+J.getCode()+","
                     +"'"+J.getName()+"'"+","
                     +J.getSpent()+","
                     +J.getBalance()+", "
-                    +J.getWinnings()+");"+"INSERT INTO clientj(code, cnpj)" +
+                    +J.getWinnings()+","
+                    +"'"+J.getdescription()+"');"
+                    +"INSERT INTO clientj(code, cnpj)" +
                     "VALUES("+J.getCode()+","
                     +"'"+J.getCnpj()+"')";
+            System.out.println(sql);
             PreparedStatement stmt = bd.getconnection().prepareStatement(sql);
             stmt.executeUpdate();
-            System.out.println("Opened database successfully");
+
 
         } catch (SQLException e) {
             System.err.println( e.getClass().getName()+": "+ e.getMessage() );
@@ -110,7 +114,7 @@ public class ClientDao {
             Statement stmt = bd.getconnection().createStatement();
             ResultSet rs = stmt.executeQuery( "SELECT * FROM Client where code="+hash+";" );
             if(rs.next()) {
-                Client client = new Client(rs.getString("name"));
+                Client client = new Client(rs.getString("name")," ");
                 client.setCode(rs.getInt("code"));
                 client.setSpent(rs.getFloat("spent"));
                 client.setBalance(rs.getFloat("balance"));
@@ -153,5 +157,24 @@ public class ClientDao {
             e.printStackTrace();
         }
 
+    }
+    public ArrayList<Client> getClients(String name){
+        ArrayList<Client> result=new ArrayList<>();
+        try {
+            Statement stmt = bd.getconnection().createStatement();
+            ResultSet rs = stmt.executeQuery( "SELECT * FROM Client where nome=%"+name+"%;" );
+            while (rs.next()) {
+                Client client = new Client(rs.getString("name"),"");
+                client.setCode(rs.getInt("code"));
+                client.setSpent(rs.getFloat("spent"));
+                client.setBalance(rs.getFloat("balance"));
+                client.setWinnings(rs.getFloat("winnings"));
+                client.setdescription(rs.getString("description"));
+                result.add(client);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return result;
     }
 }

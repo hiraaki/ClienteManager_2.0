@@ -20,12 +20,12 @@ public class Client {
      * @param name é o nome do cliente
      *
      */
-    public Client(String name) {
+    public Client(String name,String description) {
         this.spent=0;
         this.balance=0;
         this.winnings=0;
         this.name = name;
-        this.description="";
+        this.description=description;
         this.services=new ArrayList<>();
     }
 

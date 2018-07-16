@@ -1,9 +1,7 @@
 package ClientManager;
 
-import ClientManager.Controls.ClientViewController;
-import ClientManager.Controls.InvoiceVewController;
+import ClientManager.Controls.ClientDAOController;
 import ClientManager.DAO.ClientDao;
-import ClientManager.DAO.InvoiceDao;
 import ClientManager.Models.ClientF;
 import ClientManager.Models.ClientJ;
 import java.util.Objects;
@@ -28,10 +26,10 @@ public class Main extends Application {
         ClientDao ClientData = new ClientDao();
 
 
-        ClientViewController ClientController = new ClientViewController();
+        ClientDAOController ClientController = new ClientDAOController();
 
-        ClientController.registerClientJ("Plutão","37.664.060/0001-19");
-        ClientController.registerClientF("Rodrigo potato","410.858.110-50");
+        ClientController.registerClientJ("Plutão","37.664.060/0001-19","Telefone(32)3201 3212");
+        ClientController.registerClientF("Rodrigo potato","410.858.110-50","Telefone(32)3201 3212");
 
         ClientJ J = (ClientJ) ClientData.getClient(Objects.hashCode("Plutão"+"37.664.060/0001-19"));
         System.out.println(J.getCode());
