@@ -6,6 +6,7 @@ import java.sql.SQLException;
 
 public class BDConnection {
     Connection connection = null;
+
     public BDConnection(){
         try {
             String driver = "org.postgresql.Driver";

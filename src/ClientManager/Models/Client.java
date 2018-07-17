@@ -2,9 +2,7 @@ package ClientManager.Models;
 
 import java.util.ArrayList;
 
-/**Classe generica para cliente, onde
- *
- */
+
 public class Client {
     private int code;
     private String name;
@@ -15,10 +13,9 @@ public class Client {
     private ArrayList<Invoice> services;
 
     /**
-     * Esse é o construtor da classe Client
      *
-     * @param name é o nome do cliente
-     *
+     * @param name a variavel name é responsável por armazenar o nome do cliente
+     * @param description responsável por armazenar uma pequena descrição sobre o serviço prestado
      */
     public Client(String name,String description) {
         this.spent=0;

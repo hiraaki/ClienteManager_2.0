@@ -22,7 +22,6 @@ public class CadastroClienteController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
 
     }
-
     public void buttonCadastraCliente(){
         String name = textfildNome.getText();
         String cpfcnpj = textfildcpfcnpj.getText();

@@ -50,10 +50,15 @@ public class HistoricoViewController implements Initializable {
 
     ObservableList<Invoice> data = FXCollections.observableArrayList();
 
+    /**
+     *
+     * @param selected é cliente que foi selecionado na tabela de clientes
+     */
     public HistoricoViewController(Client selected) {
         this.controller = new InvoiceDAOController();
         this.selected = selected;
     }
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

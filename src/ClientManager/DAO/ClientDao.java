@@ -10,13 +10,19 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+/**
+ *
+ */
+
 public class ClientDao {
 
     BDConnection bd;
 
+
     public ClientDao(){
         bd = new BDConnection();
     }
+
     public void saveClientF(ClientF f){
         f.setCode(f.hashCode());
         System.out.println(f.getCpf()+f.getName()+f.getSpent());
