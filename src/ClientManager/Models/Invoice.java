@@ -5,7 +5,7 @@ package ClientManager.Models;
  */
 public class Invoice {
     private int id;
-    private int clientID;
+    //private int clientID;
     private String description;
     private Client client;
     private float spent;
@@ -14,19 +14,18 @@ public class Invoice {
 
     /**
      * Esse é o construtor da classe Invoice a qual contrrola a entrada e saida de  gastos
-     * @param clientID código do cliente
      * @param description descrição do serviço prestado
      * @param client cliente
      * @param spent valor gasto no serviço
      * @param winningPercentage porcentagem de ganho em cima de serviço prestado
      */
-    public Invoice(int clientID, String description, Client client, float spent, float winningPercentage) {
-        this.clientID = clientID;
+    public Invoice(String description, Client client, float spent, float winningPercentage) {
+        //this.clientID = clientID;
         this.description = description;
         this.client = client;
         this.spent = spent;
         this.winningPercentage=winningPercentage;
-        this.totalcost =this. winningPercentage-this.spent;
+        this.totalcost =this.spent+(this.spent*this.winningPercentage/100);
     }
 
     public int getId() {
@@ -37,13 +36,13 @@ public class Invoice {
         this.id = id;
     }
 
-    public int getClientID() {
-        return clientID;
-    }
-
-    public void setClientID(int clientID) {
-        this.clientID = clientID;
-    }
+//    public int getClientID() {
+//        return clientID;
+//    }
+//
+//    public void setClientID(int clientID) {
+//        this.clientID = clientID;
+//    }
 
     public String getDescription() {
         return description;

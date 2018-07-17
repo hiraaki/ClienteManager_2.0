@@ -21,17 +21,14 @@ public class ClientDAOController {
         data.saveClientJ(new ClientJ(_name,cnpj,description));
         System.out.println("s");
     }
-    public void  DeleteClientJ(String _name, String cnpj){
-        data.deleteClientJ(new ClientJ(_name,cnpj));
-
+    public void  deleteClientJ(int code){
+        data.deleteClient(code);
     }
     public void registerClientF(String _name, String cpf,String description){
         data.saveClientF(new ClientF(_name,cpf,description));
         System.out.println("s");
     }
-    public void  DeleteClientF(String _name, String cpf){
-        data.deleteClientF(new ClientF(_name,cpf));
-    }
+
     public ArrayList<Client> getClients(String name){
         return data.getClients(name);
     }

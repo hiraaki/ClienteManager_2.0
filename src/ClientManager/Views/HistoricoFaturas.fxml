@@ -10,22 +10,28 @@
 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="407.0" prefWidth="670.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label layoutX="24.0" layoutY="49.0" text="Nome do Cliente:" />
-      <TableView layoutX="7.0" layoutY="76.0" prefHeight="235.0" prefWidth="657.0">
+      <TableView fx:id="invoicesTable" layoutX="7.0" layoutY="76.0" prefHeight="205.0" prefWidth="657.0">
          <columns>
-            <TableColumn prefWidth="353.0" text="Descrição" />
-            <TableColumn fx:id="table11" prefWidth="87.0" text="Gastos" />
-            <TableColumn fx:id="table111" prefWidth="108.0" text="Porcentagem" />
-            <TableColumn fx:id="table1111" prefWidth="107.0" text="Custo Total" />
+            <TableColumn fx:id="descriptionColumn" prefWidth="353.0" text="Descrição" />
+            <TableColumn fx:id="spentColumn" prefWidth="87.0" text="Gastos" />
+            <TableColumn fx:id="percentageColumn" prefWidth="108.0" text="Porcentagem" />
+            <TableColumn fx:id="totalCostColumn" prefWidth="107.0" text="Custo Total" />
          </columns>
       </TableView>
-      <Button layoutX="393.0" layoutY="348.0" mnemonicParsing="false" text="Deletar" />
-      <Button layoutX="237.0" layoutY="348.0" mnemonicParsing="false" text="Cadastrar" />
-      <Label layoutX="117.0" layoutY="49.0" text="NOME DO CLIENTE" />
+      <Button layoutX="379.0" layoutY="348.0" mnemonicParsing="false" text="Excluir Fatura" onAction="#buttonDeleteInvoice" />
+      <Button layoutX="159.0" layoutY="348.0" mnemonicParsing="false" text="Cadastrar Fatura" onAction="#buttonCadastraFatura" />
+      <Label fx:id="clientNameText" layoutX="117.0" layoutY="49.0" text="NOME DO CLIENTE" />
       <Label layoutX="288.0" layoutY="7.0" text="Histórico">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Button layoutX="327.0" layoutY="348.0" mnemonicParsing="false" text="Exibir" />
+      <Button layoutX="299.0" layoutY="348.0" mnemonicParsing="false" text="Exibir" />
+      <Label layoutX="24.0" layoutY="291.0" text="Total Recebido:R$" />
+      <Label layoutX="24.0" layoutY="316.0" text="Total Gasto:R$" />
+      <Label layoutX="321.0" layoutY="291.0" text="Balanço:R$" />
+      <Label fx:id="totalRecivedText" layoutX="120.0" layoutY="291.0" text="------------------------" />
+      <Label fx:id="totalSpentText" layoutX="101.0" layoutY="316.0" text="------------------------" />
+      <Label fx:id="balanceText" layoutX="379.0" layoutY="291.0" text="------------------------" />
    </children>
 </AnchorPane>

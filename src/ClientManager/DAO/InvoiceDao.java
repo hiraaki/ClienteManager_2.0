@@ -23,7 +23,7 @@ public class InvoiceDao {
     }
 
     public void addInvoice(Client client, Invoice invoice){
-        invoice.setClientID(client.getCode());
+//        invoice.setClientID(client.getCode());
         invoice.setClient(client);
         invoice.getClient().addSpent(invoice.getSpent());
         invoice.setTotalcost(invoice.getSpent()+((invoice.getSpent()*invoice.getWinningPercentage())/100));
@@ -60,22 +60,22 @@ public class InvoiceDao {
         bd = new BDConnection();
         try {
             Statement stmt = bd.getconnection().createStatement();
-            String sql = "DELETE from invoice where code ="+in.getId()+";";
+            String sql = "DELETE from invoice where clientid ="+in.getId()+";";
             stmt.executeUpdate(sql);
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-    public ArrayList<Invoice> getInvoice(int codigoCliente){
+    public ArrayList<Invoice> getInvoice(int clienteCode){
         ArrayList<Invoice> invoices = new ArrayList<>();
         try {
             Statement stmt = bd.getconnection().createStatement();
-            ResultSet rs = stmt.executeQuery( "SELECT * FROM invoice where code="+codigoCliente+";" );
+            ResultSet rs = stmt.executeQuery( "SELECT * FROM invoice where clientid="+clienteCode+";" );
             ClientDao cli = new ClientDao();
             while(rs.next()) {
                 Invoice invoice = new Invoice(
-                        rs.getInt("clientid"),
+//                        rs.getInt("clientid"),
                         rs.getString("description"),
                         (Client) cli.getClient(rs.getInt("clientid")),
                         rs.getFloat("spent"),

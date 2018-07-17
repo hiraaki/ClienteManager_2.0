@@ -37,7 +37,7 @@ public class Main extends Application {
         System.out.println(J.getBalance());
         System.out.println(J.getWinnings());
         System.out.println(J.getSpent());
-        ClientData.deleteClientJ(J);
+        ClientData.deleteClient(J.getCode());
 //        System.out.println(J.hashCode());
         ClientF F = (ClientF) ClientData.getClient(Objects.hashCode("Rodrigo potato"+"410.858.110-50"));
 //        System.out.println(F.hashCode());
@@ -46,7 +46,7 @@ public class Main extends Application {
         System.out.println(F.getBalance());
         System.out.println(F.getWinnings());
         System.out.println(F.getSpent());
-        ClientData.deleteClientF(F);
+        ClientData.deleteClient(F.getCode());
 //        ClientData.deleteClientJ(J);
         launch(args);
 

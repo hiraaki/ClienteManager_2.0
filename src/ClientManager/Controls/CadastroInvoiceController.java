@@ -41,12 +41,13 @@ public class CadastroInvoiceController implements Initializable {
     public void buttonCalcular(){
         float gastos = Float.parseFloat(spentfield.getText());
         float porcentagem = Float.parseFloat(percentagefield.getText());
-        totalText.setText(String.valueOf(gastos*porcentagem/100));
+        totalText.setText(String.valueOf(gastos+(gastos*porcentagem/100)));
     }
 
     public void buttonAdicionar(){
         InvoiceDAOController co= new InvoiceDAOController();
-        co.registerInvoice( selected.getCode(),
+        co.registerInvoice(
+//                selected.getCode(),
                 descriptionArea.getText(),
                 selected,
                 Float.parseFloat(spentfield.getText()),

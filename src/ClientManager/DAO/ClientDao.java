@@ -11,14 +11,11 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 public class ClientDao {
-    ArrayList<ClientF> ClientesF;
-    ArrayList<ClientJ> ClientesJ;
+
     BDConnection bd;
 
     public ClientDao(){
-
-        this.ClientesJ=new ArrayList<>();
-        this.ClientesF=new ArrayList<>();
+        bd = new BDConnection();
     }
     public void saveClientF(ClientF f){
         f.setCode(f.hashCode());
@@ -44,7 +41,6 @@ public class ClientDao {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        this.ClientesF.add(f);
 
     }
     public void saveClientJ(ClientJ J){
@@ -72,40 +68,31 @@ public class ClientDao {
             System.err.println( e.getClass().getName()+": "+ e.getMessage() );
             System.exit(0);
         }
-        this.ClientesJ.add(J);
+
     }
 
-    public void deleteClientF(ClientF F){
-        F.setCode(F.hashCode());
-        bd = new BDConnection();
+    public void deleteClient(int code){
         try {
             Statement stmt = bd.getconnection().createStatement();
-            String sql = "DELETE from clientf where code ="+F.getCode()+";" +
-                    "DELETE from client where code ="+F.getCode()+";";
+            String sql = "DELETE from invoice where clientid ="+code+";" ;
+            stmt.executeUpdate(sql);
 
+            ResultSet rs = stmt.executeQuery( "SELECT * FROM clientf where code="+code+";" );
+            if(rs.next()){
+                 sql = "DELETE from clientf where code ="+code+";";
+                 stmt.executeUpdate(sql);
+            }else{
+                 sql = "DELETE from clientj where code ="+code+";" ;
+                 stmt.executeUpdate(sql);
+            }
+            sql="DELETE from client where code ="+code+";";
             stmt.executeUpdate(sql);
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        this.ClientesF.remove(F);
     }
 
-    public void deleteClientJ(ClientJ J){
-        J.setCode(J.hashCode());
-        bd = new BDConnection();
-        try {
-            Statement stmt = bd.getconnection().createStatement();
-            String sql = "DELETE from clientj where code ="+J.getCode()+";" +
-                    "DELETE from client where code ="+J.getCode()+";";
-
-            stmt.executeUpdate(sql);
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        this.ClientesJ.remove(J);
-    }
 
     public Object getClient(int hash){
         Object response=null;

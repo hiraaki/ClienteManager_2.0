@@ -73,7 +73,7 @@ public class Client {
     }
 
     public void updateBalance() {
-        this.balance = this.spent-winnings;
+        this.balance = this.winnings-this.spent;
     }
     public float getWinnings() {
         return winnings;

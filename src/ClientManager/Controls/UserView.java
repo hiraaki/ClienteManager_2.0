@@ -12,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
@@ -31,7 +32,7 @@ public class UserView implements Initializable {
     private TableColumn<Client, String> descriptionColumn;
 
     @FXML
-    private javafx.scene.control.TableView<Client> clientsTable;
+    private TableView<Client> clientsTable;
 
     private ArrayList<Client> clients;
     ObservableList<Client> data = FXCollections.observableArrayList();
@@ -74,6 +75,20 @@ public class UserView implements Initializable {
         Scene scene = new Scene(c);
         stage.setScene(scene);
         stage.show();
+    }
+    public void buttonExibirFaturas() throws IOException {
+        HistoricoViewController controller = new HistoricoViewController(clientsTable.getSelectionModel().getSelectedItem());
+        Stage stage = new Stage();
+        FXMLLoader fx = new FXMLLoader(getClass().getResource("/ClientManager/Views/HistoricoFaturas.fxml"));
+        fx.setController(controller);
+        Parent p= fx.load();
+        Scene scene = new Scene(p);
+        stage.setScene(scene);
+        stage.show();
+    }
+    public void buttonDeletClient(){
+        ClientDAOController controller = new ClientDAOController();
+        controller.deleteClientJ(clientsTable.getSelectionModel().getSelectedItem().getCode());
     }
 
 }
