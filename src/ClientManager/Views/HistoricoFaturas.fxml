@@ -18,15 +18,14 @@
             <TableColumn fx:id="totalCostColumn" prefWidth="107.0" text="Custo Total" />
          </columns>
       </TableView>
-      <Button layoutX="379.0" layoutY="348.0" mnemonicParsing="false" text="Excluir Fatura" onAction="#buttonDeleteInvoice" />
-      <Button layoutX="159.0" layoutY="348.0" mnemonicParsing="false" text="Cadastrar Fatura" onAction="#buttonCadastraFatura" />
+      <Button layoutX="495.0" layoutY="348.0" mnemonicParsing="false" onAction="#buttonDeleteInvoice" text="Excluir Fatura" />
+      <Button layoutX="75.0" layoutY="348.0" mnemonicParsing="false" onAction="#buttonCadastraFatura" text="Cadastrar Fatura" />
       <Label fx:id="clientNameText" layoutX="117.0" layoutY="49.0" text="NOME DO CLIENTE" />
       <Label layoutX="288.0" layoutY="7.0" text="Histórico">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Button layoutX="299.0" layoutY="348.0" mnemonicParsing="false" text="Exibir" />
       <Label layoutX="24.0" layoutY="291.0" text="Total Recebido:R$" />
       <Label layoutX="24.0" layoutY="316.0" text="Total Gasto:R$" />
       <Label layoutX="321.0" layoutY="291.0" text="Balanço:R$" />
