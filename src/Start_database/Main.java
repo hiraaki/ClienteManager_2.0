@@ -18,13 +18,7 @@ public class Main {
             e.printStackTrace();
         }
         try {
-            String sql = "CREATE TABLE Client " +
-                    "(code INT PRIMARY KEY     NOT NULL," +
-                    " name           TEXT    NOT NULL, " +
-                    " spent            REAL," +
-                    " balance          REAL," +
-                    " winnings        REAL," +
-                    " description   TEXT);";
+            String sql = "CREATE TABLE Client (code INT PRIMARY KEY NOT NULL, name TEXT NOT NULL, spent REAL, balance REAL, winnings REAL, description TEXT );";
             stmt.executeUpdate(sql);
         }catch (Exception e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
