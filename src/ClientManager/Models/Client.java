@@ -44,6 +44,8 @@ public class Client {
         this.winnings = winnings;
     }
 
+
+
     public int getCode() {
         return code;
     }
@@ -80,7 +82,7 @@ public class Client {
     }
 
     public void addWinnings(float winnings) {
-        this.winnings = winnings;
+        this.winnings += winnings;
     }
 
     public String getDescription() {

@@ -59,6 +59,7 @@ public class HistoricoViewController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         this.invoices=new ArrayList<>();
         this.invoices=controller.getInvoices(selected.getCode());
+
         descriptionColumn.setCellValueFactory(new PropertyValueFactory<>("description"));
         spentColumn.setCellValueFactory(new PropertyValueFactory<>("spent"));
         percentageColumn.setCellValueFactory(new PropertyValueFactory<>("winningPercentage"));
@@ -73,7 +74,9 @@ public class HistoricoViewController implements Initializable {
         totalSpentText.setText(String.valueOf(selected.getSpent()));
     }
     public void buttonDeleteInvoice(){
+
         controller.deleteInvoice(invoicesTable.getSelectionModel().getSelectedItem());
+
     }
     public void buttonCadastraFatura() throws IOException {
         CadastroInvoiceController controller= new CadastroInvoiceController(this.selected);

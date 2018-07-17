@@ -47,7 +47,6 @@ public class CadastroInvoiceController implements Initializable {
     public void buttonAdicionar(){
         InvoiceDAOController co= new InvoiceDAOController();
         co.registerInvoice(
-//                selected.getCode(),
                 descriptionArea.getText(),
                 selected,
                 Float.parseFloat(spentfield.getText()),

@@ -94,8 +94,9 @@ public class ClientDao {
     }
 
 
-    public Object getClient(int hash){
-        Object response=null;
+    public Client getClient(int hash){
+//        Object response=null;
+        Client response = new Client();
         bd = new BDConnection();
         try {
             Statement stmt = bd.getconnection().createStatement();
@@ -106,23 +107,23 @@ public class ClientDao {
                 client.setSpent(rs.getFloat("spent"));
                 client.setBalance(rs.getFloat("balance"));
                 client.setWinnings(rs.getFloat("winnings"));
-
-                rs = stmt.executeQuery("SELECT * FROM clientj where code=" + hash + ";");
-                if (rs.next()) {
-                    ClientJ clientJ = new ClientJ(client.getName(),rs.getString("cnpj"));
-                    clientJ.setCode(client.getCode());
-                    clientJ.setBalance(client.getBalance());
-                    clientJ.setSpent(client.getWinnings());
-                    response = clientJ;
-                } else {
-                    rs = stmt.executeQuery("SELECT * FROM clientf where code=" + hash + ";");
-                    rs.next();
-                    ClientF clientF = new ClientF(client.getName(),rs.getString("cpf"));
-                    clientF.setCode(client.getCode());
-                    clientF.setBalance(client.getBalance());
-                    clientF.setSpent(client.getWinnings());
-                    response = clientF;
-                }
+                response = client;
+//                rs = stmt.executeQuery("SELECT * FROM clientj where code=" + hash + ";");
+//                if (rs.next()) {
+//                    ClientJ clientJ = new ClientJ(client.getName(),rs.getString("cnpj"));
+//                    clientJ.setCode(client.getCode());
+//                    clientJ.setBalance(client.getBalance());
+//                    clientJ.setSpent(client.getWinnings());
+//                    response = clientJ;
+//                } else {
+//                    rs = stmt.executeQuery("SELECT * FROM clientf where code=" + hash + ";");
+//                    rs.next();
+//                    ClientF clientF = new ClientF(client.getName(),rs.getString("cpf"));
+//                    clientF.setCode(client.getCode());
+//                    clientF.setBalance(client.getBalance());
+//                    clientF.setSpent(client.getWinnings());
+//                    response = clientF;
+//                }
             }
 
         } catch (SQLException e) {
@@ -135,9 +136,8 @@ public class ClientDao {
         Statement stmt = null;
         try {
             stmt = bd.getconnection().createStatement();
-            String sql = "UPDATE client set spent= "+client.getWinnings()+" where code="+client.getCode()+";" +
+            String sql = "UPDATE client set spent= "+client.getSpent()+" where code="+client.getCode()+";" +
                         "UPDATE client set balance= "+client.getBalance()+" where code="+client.getCode()+";"+
-                        "UPDATE client set winnings= "+client.getWinnings()+" where code="+client.getCode()+";"+
                         "UPDATE client set winnings= "+client.getWinnings()+" where code="+client.getCode()+";";
             stmt.executeUpdate(sql);
         } catch (SQLException e) {

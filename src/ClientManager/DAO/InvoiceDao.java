@@ -51,20 +51,32 @@ public class InvoiceDao {
     }
 
     public void delete(Invoice in){
-        in.getClient().addWinnings(in.getTotalcost()*-1);
-        in.getClient().addSpent(in.getSpent()*-1);
+        System.out.println(in.getClient().getSpent());
+        in.getClient().setWinnings(in.getClient().getWinnings()-in.getTotalcost());
+
+        in.getClient().setSpent(in.getClient().getSpent()-in.getSpent());
+        System.out.println("TotalDaFatura:"+in.getTotalcost());
+        System.out.println("GastoDaFatura"+in.getSpent());
+
+        System.out.println("ganho"+in.getClient().getWinnings());
+        System.out.println("gasto"+in.getClient().getSpent());
         in.getClient().updateBalance();
+        System.out.println("balaco"+in.getClient().getBalance());
+
         ClientDao cl= new ClientDao();
         cl.updateClientValues(in.getClient());
 
         bd = new BDConnection();
         try {
             Statement stmt = bd.getconnection().createStatement();
-            String sql = "DELETE from invoice where clientid ="+in.getId()+";";
+            String sql = "DELETE FROM invoice where id ="+in.getId()+";";
+            System.out.println(sql);
             stmt.executeUpdate(sql);
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
     }
 
     public ArrayList<Invoice> getInvoice(int clienteCode){
@@ -75,12 +87,16 @@ public class InvoiceDao {
             ClientDao cli = new ClientDao();
             while(rs.next()) {
                 Invoice invoice = new Invoice(
-//                        rs.getInt("clientid"),
                         rs.getString("description"),
-                        (Client) cli.getClient(rs.getInt("clientid")),
+                        new Client(),
                         rs.getFloat("spent"),
                         rs.getFloat("winningpercentage")
                 );
+                invoice.setId(rs.getInt("id"));
+                Client c =cli.getClient(rs.getInt("clientid"));
+                System.out.println(c.getSpent());
+                System.out.println(c.getName());
+                invoice.setClient(c);
                 invoices.add(invoice);
             }
 
